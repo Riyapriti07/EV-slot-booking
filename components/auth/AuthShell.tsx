@@ -103,7 +103,7 @@ export function AuthShell() {
       const { data: pinRow, error } = await supabase
         .from("pins")
         .select("user_id")
-        .eq("user_id", user.id)
+        .eq("user_id", user!.id)
         .maybeSingle();
 
       if (error) {
@@ -150,8 +150,8 @@ export function AuthShell() {
             }))
           );
         }
-      })
-      .finally(() => setIsLoadingVehicles(false));
+        setIsLoadingVehicles(false);
+      });
   }, [currentUserId]);
 
   const hasVehicles = useMemo(() => vehicles.length > 0, [vehicles]);
