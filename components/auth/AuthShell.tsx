@@ -94,8 +94,8 @@ export function AuthShell() {
     async function ensureUserAndPin() {
       await supabase.from("users").upsert(
         {
-          id: user.id,
-          email: user.email
+          id: user!.id,
+          email: user!.email
         },
         { onConflict: "id" }
       );
