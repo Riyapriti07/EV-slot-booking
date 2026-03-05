@@ -37,7 +37,7 @@ function toLocalDateTimeInputValue(date: Date) {
 function generateQrPattern(id: string): number[][] {
   const size = 21;
   const grid: number[][] = Array.from({ length: size }, () =>
-    Array.from({ length: size }).fill(0)
+    Array.from({ length: size }).fill(0) as number[]
   );
   const hash = Array.from(id).reduce(
     (acc, ch, idx) => (acc + ch.charCodeAt(0) * (idx + 3)) % 9973,
