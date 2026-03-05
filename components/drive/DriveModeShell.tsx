@@ -453,11 +453,11 @@ export function DriveModeShell() {
               <Button
                 type="button"
                 size="sm"
-                disabled={!detour || alertStatus === "rerouting"}
+                disabled={!detour || (alertStatus as string) === "rerouting"}
                 onClick={handleRerouteAndBook}
                 className="flex-1 bg-accent-crimson text-slate-50 hover:bg-red-500"
               >
-                {alertStatus === "rerouting"
+                {(alertStatus as string) === "rerouting"
                   ? "Rerouting & booking…"
                   : "REROUTE & BOOK NOW"}
               </Button>
